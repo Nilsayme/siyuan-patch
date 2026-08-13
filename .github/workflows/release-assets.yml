@@ -167,15 +167,6 @@ jobs:
         run: npm install -g ${{ github.event.inputs.packageManager }}
         working-directory: ${{ github.workspace }}/siyuan-note/siyuan/app
 
-      - name: Fix pnpm workspace
-        working-directory: ${{ github.workspace }}/siyuan-note/siyuan/app
-        run: |
-          if [ -f pnpm-workspace.yaml ] && ! grep -q "packages:" pnpm-workspace.yaml; then
-            echo "packages:" >> pnpm-workspace.yaml
-            echo "  - 'packages/*'" >> pnpm-workspace.yaml
-          fi
-          cat pnpm-workspace.yaml
-
       - name: Install Node Dependencies
         run: pnpm install --no-frozen-lockfile
         working-directory: ${{ github.workspace }}/siyuan-note/siyuan/app
