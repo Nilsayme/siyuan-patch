@@ -5,6 +5,9 @@ on:
     - cron: "0 12 * * 2,5" # 每周二和周五的12点（UTC时间）
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   create_release:
     name: get version and create release
