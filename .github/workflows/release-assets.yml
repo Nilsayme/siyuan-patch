@@ -135,6 +135,8 @@ jobs:
         with:
           go-version-file: ${{ github.workspace }}/siyuan-note/siyuan/kernel/go.mod
           cache-dependency-path: "**/*.sum"
+      - name: Use CN Go proxy
+        run: echo "GOPROXY=https://goproxy.cn,direct" >> $GITHUB_ENV
       - run: |
           go version
           whereis go
